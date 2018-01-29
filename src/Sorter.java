@@ -6,14 +6,8 @@ public abstract class Sorter {
 	static ArrayList<Integer> integerList;
 	static Scanner in;
 	static int numItems;
-	static 
-	
-	public static void main(String[] args){
-		System.out.println("Hello World");
-		integerList = new ArrayList<Integer>();
-		read();
-		write();
-	}
+	static double runtime = 0.0;
+	static int numComparisons = 0;
 	
 	public abstract void sort();
 	
@@ -30,6 +24,7 @@ public abstract class Sorter {
 		for(Integer g: integerList){
 			System.out.println(g.toString());
 		}
+		System.out.println();
 	}
 	
 }

@@ -6,5 +6,8 @@ public class MergeSort extends Sorter {
 		
 	}
 	
+	public static void main(String[] args){
+		
+	}
 	
 }

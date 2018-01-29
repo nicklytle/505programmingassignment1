@@ -5,5 +5,7 @@ public class HeapSort extends Sorter {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	public static void main(String[] args){
+		
+	}
 }
