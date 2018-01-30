@@ -3,11 +3,6 @@ import java.util.Comparator;
 
 public class InsertionSort extends Sorter {
 
-	@Override
-	public void sort() {
-		// TODO Auto-generated method stub
-
-	}
 
 	public static void main(String[] args) {
 		ArrayList<Integer> arr = new ArrayList<>();
@@ -16,7 +11,8 @@ public class InsertionSort extends Sorter {
 		arr.add(3);
 		arr.add(2);
 		// arr.add(1);
-		System.out.println(insertionSort(arr));
+		startTime = System.nanoTime();
+		insertionSort(arr);
 		endTime = System.nanoTime();
 		runtime = endTime-startTime;
 		write(arr);
@@ -32,7 +28,6 @@ public class InsertionSort extends Sorter {
 	 */
 	public static ArrayList<Integer> insertionSort(ArrayList<Integer> L) {
 		
-		startTime = System.nanoTime();
 		/**
 		 * If L is empty, our work is done. Otherwise, take the first element of the
 		 * list and then insert it into a sorted list (the recursive call to
@@ -56,7 +51,6 @@ public class InsertionSort extends Sorter {
 	 * @return The sorted list with the Integer.
 	 */
 	public static ArrayList<Integer> insert(Integer i, ArrayList<Integer> l) {
-		Comparator<Integer> comp = new Counter();
 		ArrayList<Integer> sorted = new ArrayList<>();
 		/**
 		 * If the list is empty, then we can return a list with simply i. If the integer

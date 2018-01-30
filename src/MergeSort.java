@@ -10,11 +10,6 @@ import java.util.Comparator;
  *
  */
 public class MergeSort extends Sorter {
-
-	@Override
-	public void sort() {
-		// TODO Auto-generated method stub
-	}
 	
 
 	public static void main(String[] args) {
@@ -25,7 +20,8 @@ public class MergeSort extends Sorter {
 		arr.add(3);
 		arr.add(2);
 		// arr.add(1);
-		System.out.println(mergeSort(arr));
+		startTime = System.nanoTime();
+		mergeSort(arr);
 		endTime = System.nanoTime();
 		runtime = endTime-startTime;
 		// Worst case should be nlgn comparisons, which looks like it checks out
@@ -41,7 +37,6 @@ public class MergeSort extends Sorter {
 	 */
 	public static ArrayList<Integer> mergeSort(ArrayList<Integer> L) {
 		
-		startTime = System.nanoTime();
 		/**
 		 * If the list is empty or contains only one element, our job is done. If the
 		 * list contains more than one element, we continuously divide the list in half
@@ -82,7 +77,6 @@ public class MergeSort extends Sorter {
 		 */
 		ArrayList<Integer> rest = new ArrayList<>();
 		ArrayList<Integer> l = new ArrayList<>();
-		Comparator<Integer> comp = new Counter();
 		if (comp.compare(L1.get(0), L2.get(0)) > 0) {
 			rest.addAll(L2.subList(1, L2.size()));
 			l.add(L2.get(0));

@@ -3,14 +3,9 @@ import java.util.Comparator;
 
 public class HeapSort extends Sorter {
 static int heapSize = 0;
-static Comparator<Integer> comp = new Counter();
 
-	@Override
-	public void sort() {
-	}
 	
 	public static void heapSort(ArrayList<Integer> integerList){
-		startTime = System.nanoTime();
 		buildHeap(integerList);
 		for(int i = integerList.size()-1; i >=0; i-- ){
 			heapSize--;
@@ -35,6 +30,7 @@ static Comparator<Integer> comp = new Counter();
 		arr.add(3);
 		arr.add(-8);
 		// arr.add(1);
+		startTime = System.nanoTime();
 		heapSort(arr);
 		// Worst case should be nlgn comparisons, which looks like it checks out
 		write(arr);
