@@ -17,8 +17,11 @@ public class InsertionSort extends Sorter {
 		arr.add(2);
 		// arr.add(1);
 		System.out.println(insertionSort(arr));
-		System.out.println(Sorter.numComparisons);
-	}
+		endTime = System.nanoTime();
+		runtime = endTime-startTime;
+		write(arr);
+
+}
 
 	/**
 	 * Recursively takes one element of a list at a time and sorts it
@@ -28,6 +31,8 @@ public class InsertionSort extends Sorter {
 	 * @return the list L in sorted order
 	 */
 	public static ArrayList<Integer> insertionSort(ArrayList<Integer> L) {
+		
+		startTime = System.nanoTime();
 		/**
 		 * If L is empty, our work is done. Otherwise, take the first element of the
 		 * list and then insert it into a sorted list (the recursive call to

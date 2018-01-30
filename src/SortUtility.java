@@ -19,8 +19,7 @@ public class SortUtility extends Sorter {
 		arr.add(2);
 		// arr.add(1);
 		Collections.sort(arr, comp);
-		System.out.println(arr);
-		System.out.println(Sorter.numComparisons);
+		write(arr);
 
 	}
 

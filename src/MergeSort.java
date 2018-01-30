@@ -15,6 +15,7 @@ public class MergeSort extends Sorter {
 	public void sort() {
 		// TODO Auto-generated method stub
 	}
+	
 
 	public static void main(String[] args) {
 		// Testing
@@ -25,8 +26,10 @@ public class MergeSort extends Sorter {
 		arr.add(2);
 		// arr.add(1);
 		System.out.println(mergeSort(arr));
+		endTime = System.nanoTime();
+		runtime = endTime-startTime;
 		// Worst case should be nlgn comparisons, which looks like it checks out
-		System.out.println(Sorter.numComparisons);
+		write(arr);
 	}
 
 	/**
@@ -37,6 +40,8 @@ public class MergeSort extends Sorter {
 	 * @return An ArrayList of the integers from L in sorted order
 	 */
 	public static ArrayList<Integer> mergeSort(ArrayList<Integer> L) {
+		
+		startTime = System.nanoTime();
 		/**
 		 * If the list is empty or contains only one element, our job is done. If the
 		 * list contains more than one element, we continuously divide the list in half
@@ -63,6 +68,7 @@ public class MergeSort extends Sorter {
 	 */
 	public static ArrayList<Integer> merge(ArrayList<Integer> L1, ArrayList<Integer> L2) {
 		// If one of the lists are empty, we only need to return the other list.
+		
 		if (L1.size() == 0) {
 			return L2;
 		} else if (L2.size() == 0) {

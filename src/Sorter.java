@@ -8,7 +8,9 @@ public abstract class Sorter {
 	static int numItems;
 	static double runtime = 0.0;
 	static int numComparisons = 0;
-	
+	static double startTime;
+	static double endTime;
+
 	public abstract void sort();
 	
 	public static void read(){
@@ -20,11 +22,12 @@ public abstract class Sorter {
 		in.close();
 	}
 	
-	public static void write(){
+	public static void write(ArrayList<Integer> integerList){
 		for(Integer g: integerList){
 			System.out.println(g.toString());
 		}
-		System.out.println();
+		System.err.println("runtime,"+runtime);
+		System.err.println("comparisons,"+numComparisons);
 	}
 	
 }
