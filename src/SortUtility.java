@@ -20,7 +20,6 @@ public class SortUtility extends Sorter {
 		// arr.add(1);
 		Collections.sort(arr, comp);
 		System.out.println(arr);
-		// Worst case should be nlgn comparisons, which looks like it checks out
 		System.out.println(Sorter.numComparisons);
 
 	}
