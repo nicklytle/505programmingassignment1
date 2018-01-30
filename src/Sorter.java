@@ -26,7 +26,7 @@ public abstract class Sorter {
 		for(Integer g: integerList){
 			System.out.println(g.toString());
 		}
-		System.err.println("runtime,"+runtime);
+		System.err.println("runtime,"+((int)runtime/100));
 		System.err.println("comparisons,"+numComparisons);
 	}
 	
