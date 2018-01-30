@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * @author bjanos
@@ -16,10 +17,17 @@ public class MergeSort extends Sorter {
 	}
 
 	public static void main(String[] args) {
-
+		// Testing
+		ArrayList<Integer> arr = new ArrayList<>();
+		arr.add(5);
+		arr.add(4);
+		arr.add(3);
+		arr.add(2);
+		// arr.add(1);
+		System.out.println(mergeSort(arr));
+		// Worst case should be nlgn comparisons, which looks like it checks out
+		System.out.println(Sorter.numComparisons);
 	}
-
-	// TODO implement comparator
 
 	/**
 	 * Uses a recursive merge sort to sort a list of integers.
@@ -68,7 +76,8 @@ public class MergeSort extends Sorter {
 		 */
 		ArrayList<Integer> rest = new ArrayList<>();
 		ArrayList<Integer> l = new ArrayList<>();
-		if (L2.get(0) < L1.get(0)) {
+		Comparator<Integer> comp = new Counter();
+		if (comp.compare(L1.get(0), L2.get(0)) > 0) {
 			rest.addAll(L2.subList(1, L2.size()));
 			l.add(L2.get(0));
 			l.addAll(merge(L1, rest));
