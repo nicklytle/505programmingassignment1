@@ -1,1 +1,1 @@
-java src/heapsort.java
+java -classpath src/: HeapSort
