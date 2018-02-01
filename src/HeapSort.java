@@ -52,10 +52,10 @@ public class HeapSort extends Sorter {
 		Integer right = Integer.MIN_VALUE;
 		Integer inV = integerList.get(index);
 		Integer max = inV;
-		if (li <= heapSize - 1) {
+		if (li <= heapSize) {
 			left = integerList.get(2 * index);
 		}
-		if (ri <= heapSize - 1) {
+		if (ri <= heapSize) {
 			right = integerList.get((2 * index) + 1);
 		}
 		if (li <= heapSize && comp.compare(left, max) > 0) {
