@@ -100,7 +100,7 @@ public class HeapSort extends Sorter {
 		if (switchindex != index) {
 			integerList.set(index, max);
 			integerList.set(switchindex, inV);
-			MaxHeapify(switchindex, integerList);
+			MaxHeapifybutWithoutComparisons(switchindex, integerList);
 		}
 
 	}
