@@ -1,1 +1,1 @@
-java src/SortUtility.java
+java SortUtility
