@@ -17,19 +17,19 @@ public class HeapSort extends Sorter {
 	}
 
 	public static void main(String[] args) {
-		 ArrayList<Integer> arr = new ArrayList<Integer>();
-		 arr.add(4);
-		 arr.add(3);
-		// arr.add(-100);
-		// arr.add(8);
-		// arr.add(0);
-		 arr.add(2);
-		// arr.add(-8);
-		 arr.add(1);
-		 
-		 integerList = arr;
+//		 ArrayList<Integer> arr = new ArrayList<Integer>();
+//		 arr.add(4);
+//		 arr.add(3);
+//		// arr.add(-100);
+//		// arr.add(8);
+//		// arr.add(0);
+//		 arr.add(2);
+//		// arr.add(-8);
+//		 arr.add(1);
+//		 
+//		 integerList = arr;
 		// integerList = arr;
-		//read();
+		read();
 		startTime = System.nanoTime();
 		heapSort(integerList);
 		endTime = System.nanoTime();
