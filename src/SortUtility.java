@@ -7,17 +7,19 @@ public class SortUtility extends Sorter {
 
 
 	public static void main(String[] args) {
-		ArrayList<Integer> arr = new ArrayList<>();
-		arr.add(5);
-		arr.add(4);
-		arr.add(3);
-		arr.add(2);
-		// arr.add(1);
+//		ArrayList<Integer> arr = new ArrayList<>();
+//		arr.add(5);
+//		arr.add(4);
+//		arr.add(3);
+//		arr.add(2);
+//		// arr.add(1);
+//		integerList = arr;
+		read();
 		startTime = System.nanoTime();
-		Collections.sort(arr, comp);
+		Collections.sort(integerList, comp);
 		endTime = System.nanoTime();
 		runtime = endTime-startTime;
-		write(arr);
+		write(integerList);
 
 	}
 

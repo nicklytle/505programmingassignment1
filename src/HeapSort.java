@@ -15,25 +15,26 @@ static int heapSize = 0;
 			integerList.set(i, first);
 			MaxHeapify(0, integerList);
 		}
-		endTime = System.nanoTime();
-		runtime = endTime-startTime;
 	}
 	
 	public static void main(String[] args){
-		ArrayList<Integer> arr = new ArrayList<>();
-		arr.add(5);
-		arr.add(4);
-		arr.add(3);
-		arr.add(-100);
-		arr.add(8);
-		arr.add(0);
-		arr.add(3);
-		arr.add(-8);
-		// arr.add(1);
+//		ArrayList<Integer> arr = new ArrayList<>();
+//		arr.add(5);
+//		arr.add(4);
+//		arr.add(3);
+//		arr.add(-100);
+//		arr.add(8);
+//		arr.add(0);
+//		arr.add(3);
+//		arr.add(-8);
+//		// arr.add(1);
+//		integerList = arr;
+		read();
 		startTime = System.nanoTime();
-		heapSort(arr);
-		// Worst case should be nlgn comparisons, which looks like it checks out
-		write(arr);
+		heapSort(integerList);
+		endTime = System.nanoTime();
+		runtime = endTime-startTime;
+		write(integerList);
 	}
 
 	

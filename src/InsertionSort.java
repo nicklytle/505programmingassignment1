@@ -5,17 +5,19 @@ public class InsertionSort extends Sorter {
 
 
 	public static void main(String[] args) {
-		ArrayList<Integer> arr = new ArrayList<>();
-		arr.add(5);
-		arr.add(4);
-		arr.add(3);
-		arr.add(2);
+//		ArrayList<Integer> arr = new ArrayList<>();
+//		arr.add(5);
+//		arr.add(4);
+//		arr.add(3);
+//		arr.add(2);
+//		integerList = arr;
 		// arr.add(1);
+		read();
 		startTime = System.nanoTime();
-		insertionSort(arr);
+		ArrayList<Integer> sorted = insertionSort(integerList);
 		endTime = System.nanoTime();
 		runtime = endTime-startTime;
-		write(arr);
+		write(sorted);
 
 }
 
@@ -27,7 +29,6 @@ public class InsertionSort extends Sorter {
 	 * @return the list L in sorted order
 	 */
 	public static ArrayList<Integer> insertionSort(ArrayList<Integer> L) {
-		
 		/**
 		 * If L is empty, our work is done. Otherwise, take the first element of the
 		 * list and then insert it into a sorted list (the recursive call to

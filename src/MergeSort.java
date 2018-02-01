@@ -14,18 +14,20 @@ public class MergeSort extends Sorter {
 
 	public static void main(String[] args) {
 		// Testing
-		ArrayList<Integer> arr = new ArrayList<>();
-		arr.add(5);
-		arr.add(4);
-		arr.add(3);
-		arr.add(2);
-		// arr.add(1);
+//		ArrayList<Integer> arr = new ArrayList<>();
+//		arr.add(5);
+//		arr.add(4);
+//		arr.add(3);
+//		arr.add(2);
+//		// arr.add(1);
+//		integerList = arr;
+		read();
 		startTime = System.nanoTime();
-		mergeSort(arr);
+		ArrayList<Integer> sorted = mergeSort(integerList);
 		endTime = System.nanoTime();
 		runtime = endTime-startTime;
 		// Worst case should be nlgn comparisons, which looks like it checks out
-		write(arr);
+		write(sorted);
 	}
 
 	/**
