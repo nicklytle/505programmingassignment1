@@ -17,18 +17,17 @@ public class HeapSort extends Sorter {
 	}
 
 	public static void main(String[] args) {
-//		 ArrayList<Integer> arr = new ArrayList<Integer>();
-//		 arr.add(4);
-//		 arr.add(3);
-//		// arr.add(-100);
-//		// arr.add(8);
-//		// arr.add(0);
-//		 arr.add(2);
-//		// arr.add(-8);
-//		 arr.add(1);
-//		 
-//		 integerList = arr;
-		// integerList = arr;
+//		ArrayList<Integer> arr = new ArrayList<Integer>();
+//		arr.add(4);
+//		arr.add(3);
+//		arr.add(-100);
+//		arr.add(8);
+//		arr.add(0);
+//		arr.add(2);
+//		arr.add(-8);
+//		arr.add(1);
+//
+//		integerList = arr;
 		read();
 		startTime = System.nanoTime();
 		heapSort(integerList);
@@ -59,11 +58,11 @@ public class HeapSort extends Sorter {
 		if (ri <= heapSize - 1) {
 			right = integerList.get((2 * index) + 1);
 		}
-		if (li <= heapSize - 1&&comp.compare(left, max) > 0) {
+		if (li <= heapSize && comp.compare(left, max) > 0) {
 			max = left;
 			switchindex = li;
 		}
-		if (ri <= heapSize - 1&&comp.compare(right, max) > 0) {
+		if (ri <= heapSize && comp.compare(right, max) > 0) {
 			max = right;
 			switchindex = ri;
 		}
@@ -74,7 +73,7 @@ public class HeapSort extends Sorter {
 		}
 
 	}
-	
+
 	public static void MaxHeapifybutWithoutComparisons(int index, ArrayList<Integer> integerList) {
 		int li = 2 * index;
 		int ri = 2 * index + 1;
