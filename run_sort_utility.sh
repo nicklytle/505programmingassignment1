@@ -1,1 +1,1 @@
-java SortUtility
+java -classpath src/: SortUtility
