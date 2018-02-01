@@ -61,7 +61,7 @@ public class InsertionSort extends Sorter {
 		 * position of the new list and insert will be called again on the integer and
 		 * the remaining list.
 		 */
-		if (l.size() == 0) {
+		if (l.size() == 0 || l.size() == 1) {
 			sorted.add(i);
 		} else if (comp.compare(i, l.get(0)) <= 0) {
 			sorted.add(i);
