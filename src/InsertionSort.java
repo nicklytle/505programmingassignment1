@@ -34,7 +34,7 @@ public class InsertionSort extends Sorter {
 		 * list and then insert it into a sorted list (the recursive call to
 		 * insertionSort).
 		 */
-		if (L.size() == 0) {
+		if (L.size() == 0 || L.size() == 1) {
 			return L;
 		} else {
 			ArrayList<Integer> rest = new ArrayList<>(L.subList(1, L.size()));
@@ -61,7 +61,7 @@ public class InsertionSort extends Sorter {
 		 * position of the new list and insert will be called again on the integer and
 		 * the remaining list.
 		 */
-		if (l.size() == 0 || l.size() == 1) {
+		if (l.size() == 0) {
 			sorted.add(i);
 		} else if (comp.compare(i, l.get(0)) <= 0) {
 			sorted.add(i);
