@@ -30,8 +30,8 @@ public abstract class Sorter {
 			System.out.println(g.toString());
 		}
 		//Print to Standard Error the runtime (expressed in milliseconds) and the number of comparisons
-		System.err.println("runtime = "+((int)runtime/1000000));
-		System.err.println("comparisons = "+numComparisons);
+		System.err.println("runtime,"+((int)runtime/1000000));
+		System.err.println("comparisons,"+numComparisons);
 	}
 	
 }
