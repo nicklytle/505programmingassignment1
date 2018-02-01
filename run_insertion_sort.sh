@@ -1,1 +1,1 @@
-java insertionsort.java
+java src/insertionsort.java
