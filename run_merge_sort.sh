@@ -1,1 +1,1 @@
-java src/mergesort.java
+java -classpath src/: MergeSort
