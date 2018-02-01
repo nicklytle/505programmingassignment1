@@ -1,1 +1,1 @@
-java src/insertionsort.java
+java -classpath src/: InsertionSort
