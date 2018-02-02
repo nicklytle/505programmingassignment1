@@ -15,20 +15,78 @@ public class MergeSort extends Sorter {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-//		ArrayList<Integer> test = new ArrayList<>();
-//		test.add(5);
-//		test.add(4);
-//		test.add(3);
-//		test.add(2);
-		 read();
-//		integerList = test;
+		ArrayList<Integer> test = new ArrayList<>();
+		test.add(2);
+		test.add(8);
+		test.add(3);
+		test.add(4);
+		test.add(5);
+
+		// read();
+		integerList = test;
 		startTime = System.nanoTime();
-		mergesort(integerList, 0, integerList.size() - 1);
+		ArrayList<Integer> ret = mergeSort(integerList);
 		endTime = System.nanoTime();
 		runtime = endTime - startTime;
-		write(integerList);
+		write(ret);
 	}
 
+	// public static void mergeSort(ArrayList<Integer> sort, int left, int right) {
+	// if (left < right) {
+	// int mid = (right - left + 1)/2;
+	// mergeSort(sort, left, mid - 1);
+	// mergeSort(sort, mid, right);
+	// merge(sort, left, mid, right);
+	// }
+	// }
+	//
+	// public static void merge(ArrayList<Integer> sort, int left, int mid, int
+	// right) {
+	// int lSize = mid - left + 1;
+	// int rSize = right - mid;
+	//
+	// ArrayList<Integer> L = new ArrayList<>();
+	// ArrayList<Integer> R = new ArrayList<>();
+	//
+	// for (int i = 0; i < lSize; i++) {
+	// L.add(sort.get(left + i));
+	// }
+	// for (int j = 0; j < rSize; j++) {
+	// R.add(sort.get(mid + j));
+	// }
+	//
+	// int i = 0, j = 0, k = left;
+	// while(i < lSize && j < rSize) {
+	// if(comp.compare(L.get(i), R.get(j)) <= 0) {
+	// sort.set(k, L.get(i));
+	// i++;
+	// }else {
+	// sort.set(k, R.get(j));
+	// j++;
+	// }
+	// k++;
+	// }
+	// while(i < lSize) {
+	// sort.set(k, L.get(i));
+	// i++;
+	// k++;
+	// }
+	// while(j < rSize) {
+	// sort.set(k, R.get(j));
+	// j++;
+	// k++;
+	// }
+	//// for (int k = left; k < right; k++) {
+	//// if (comp.compare(L.get(i), R.get(j)) <= 0) {
+	//// sort.set(k, L.get(i));
+	//// i++;
+	//// } else {
+	//// sort.set(k, R.get(j));
+	//// j++;
+	//// }
+	//// }
+	//
+	// }
 	/**
 	 * Uses a recursive merge sort to sort a list of integers.
 	 * 
@@ -77,75 +135,31 @@ public class MergeSort extends Sorter {
 		 */
 		ArrayList<Integer> rest = new ArrayList<>();
 		ArrayList<Integer> l = new ArrayList<>();
-		if (comp.compare(L1.get(0), L2.get(0)) > 0) {
-			rest.addAll(L2.subList(1, L2.size()));
-			l.add(L2.get(0));
-			l.addAll(merge(L1, rest));
-			return l;
-		} else {
-			rest.addAll(L1.subList(1, L1.size()));
-			l.add(L1.get(0));
-			l.addAll(merge(rest, L2));
-			return l;
-		}
-	}
-
-	public static void mergesort(ArrayList<Integer> sort, int left, int right) {
-		if (left < right) {
-			int mid = (int) Math.floor((left + right) / 2);
-			mergesort(sort, left, mid);
-			mergesort(sort, mid + 1, right);
-			mergeIt(sort, left, mid, right);
-		}
-	}
-
-	public static void mergeIt(ArrayList<Integer> sort, int left, int mid, int right) {
-		int lSize = mid - left + 1;
-		int rSize = right - mid;
-
-		ArrayList<Integer> L = new ArrayList<>();
-		ArrayList<Integer> R = new ArrayList<>();
-
-		for (int i = 0; i < lSize; i++) {
-			L.add(sort.get(left + i));
-		}
-		for (int j = 0; j < rSize; j++) {
-			R.add(sort.get(mid + j + 1));
-		}
-		
-		int k = left;
-		int i = 0, j = 0;
-		while(i < lSize && j < rSize) {
-			if(comp.compare(L.get(i), R.get(j)) <= 0) {
-				sort.set(k, L.get(i));
-				i++;
+		while (L1.size() > 0 && L2.size() > 0) {
+			if (comp.compare(L1.get(0), L2.get(0)) <= 0) {
+				l.add(L1.remove(0));
+				// rest.addAll(L2.subList(1, L2.size()));
+				// l.add(L2.get(0));
+				// l.addAll(merge(L1, rest));
+				// return l;
 			} else {
-				sort.set(k, R.get(j));
-				j++;
+				// rest.addAll(L1.subList(1, L1.size()));
+				// l.add(L1.get(0));
+				// l.addAll(merge(rest, L2));
+				// return l;
+				l.add(L2.remove(0));
 			}
-			k++;
 		}
-		while(i < lSize) {
-			sort.set(k, L.get(i));
-			i++;
-			k++;
-		}
-		while(j < rSize) {
-			sort.set(k, R.get(j));
-			j++;
-			k++;
+		while(!L1.isEmpty()) {
+			l.add(L1.remove(0));
 		}
 		
-//		int i = 0, j = 0;
-//		for (int k = left; k <= right; k++) {
-//			if (comp.compare(L.get(i), R.get(j)) <= 0) {
-//				sort.set(k, L.get(i));
-//				i++;
-//			} else {
-//				sort.set(k, R.get(j));
-//				j++;
-//			}
-//		}
+		while(!L2.isEmpty()) {
+			l.add(L2.remove(0));
+		}
+		
+		return l;
+
 	}
 
 }
