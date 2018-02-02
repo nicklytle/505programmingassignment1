@@ -1,25 +1,46 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * @author bjanos
+ *
+ */
 public class InsertionSort extends Sorter {
 
-
 	public static void main(String[] args) {
-//		ArrayList<Integer> arr = new ArrayList<>();
-//		arr.add(5);
-//		arr.add(4);
-//		arr.add(3);
-//		arr.add(2);
-//		integerList = arr;
+		// ArrayList<Integer> arr = new ArrayList<>();
+		// arr.add(5);
+		// arr.add(4);
+		// arr.add(3);
+		// arr.add(2);
+		// integerList = arr;
 		// arr.add(1);
 		read();
 		startTime = System.nanoTime();
-		ArrayList<Integer> sorted = insertionSort(integerList);
+		ArrayList<Integer> sorted = nonRecursiveInsertionSort(integerList);
 		endTime = System.nanoTime();
-		runtime = endTime-startTime;
+		runtime = endTime - startTime;
 		write(sorted);
 
-}
+	}
+
+	/**
+	 * A function to perform insertion sort non-recursively. Misunderstood directions and implemented it recursively.
+	 * @param L The ArrayList to sort in place
+	 * @return the same ArrayList, L, sorted.
+	 */
+	public static ArrayList<Integer> nonRecursiveInsertionSort(ArrayList<Integer> L) {
+		for (int j = 1; j < L.size(); j++) {
+			int key = L.get(j);
+			int i = j - 1;
+			while (i >= 0 && comp.compare(L.get(i), key) > 0) {
+				L.set(i + 1, L.get(i));
+				i = i - 1;
+			}
+			L.set(i + 1, key);
+		}
+		return L;
+	}
 
 	/**
 	 * Recursively takes one element of a list at a time and sorts it
