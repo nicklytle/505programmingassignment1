@@ -15,13 +15,13 @@ public class MergeSort extends Sorter {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ArrayList<Integer> test = new ArrayList<>();
-		test.add(5);
-		test.add(4);
-		test.add(3);
-		test.add(2);
-		// read();
-		integerList = test;
+//		ArrayList<Integer> test = new ArrayList<>();
+//		test.add(5);
+//		test.add(4);
+//		test.add(3);
+//		test.add(2);
+		 read();
+//		integerList = test;
 		startTime = System.nanoTime();
 		mergesort(integerList, 0, integerList.size() - 1);
 		endTime = System.nanoTime();
