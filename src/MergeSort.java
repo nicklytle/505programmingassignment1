@@ -109,22 +109,43 @@ public class MergeSort extends Sorter {
 		for (int i = 0; i < lSize; i++) {
 			L.add(sort.get(left + i));
 		}
-		L.add(Integer.MAX_VALUE);
 		for (int j = 0; j < rSize; j++) {
 			R.add(sort.get(mid + j + 1));
 		}
-		R.add(Integer.MAX_VALUE);
-
+		
+		int k = left;
 		int i = 0, j = 0;
-		for (int k = left; k <= right; k++) {
-			if (comp.compare(L.get(i), R.get(j)) <= 0) {
+		while(i < lSize && j < rSize) {
+			if(comp.compare(L.get(i), R.get(j)) <= 0) {
 				sort.set(k, L.get(i));
 				i++;
 			} else {
 				sort.set(k, R.get(j));
 				j++;
 			}
+			k++;
 		}
+		while(i < lSize) {
+			sort.set(k, L.get(i));
+			i++;
+			k++;
+		}
+		while(j < rSize) {
+			sort.set(k, R.get(j));
+			j++;
+			k++;
+		}
+		
+//		int i = 0, j = 0;
+//		for (int k = left; k <= right; k++) {
+//			if (comp.compare(L.get(i), R.get(j)) <= 0) {
+//				sort.set(k, L.get(i));
+//				i++;
+//			} else {
+//				sort.set(k, R.get(j));
+//				j++;
+//			}
+//		}
 	}
 
 }
