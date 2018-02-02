@@ -17,20 +17,21 @@ public class HeapSort extends Sorter {
 	}
 
 	public static void main(String[] args) {
-//		ArrayList<Integer> arr = new ArrayList<Integer>();
-//		arr.add(4);
-//		arr.add(3);
-//		arr.add(-100);
-//		arr.add(8);
-//		arr.add(0);
-//		arr.add(2);
-//		arr.add(-8);
-//		arr.add(1);
-//
-//		integerList = arr;
-		read();
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		arr.add(4);
+		arr.add(3);
+		arr.add(-100);
+		arr.add(8);
+		arr.add(0);
+		arr.add(2);
+		arr.add(-8);
+		arr.add(1);
+
+		integerList = arr;
+		// read();
 		startTime = System.nanoTime();
-		heapSort(integerList);
+//		 heapSort(integerList);
+		heapsort(integerList);
 		endTime = System.nanoTime();
 		runtime = endTime - startTime;
 		write(integerList);
@@ -102,5 +103,62 @@ public class HeapSort extends Sorter {
 			MaxHeapifybutWithoutComparisons(switchindex, integerList);
 		}
 
+	}
+
+	// Trying this again
+	public static void heapsort(ArrayList<Integer> s) {
+		buildheap(s);
+		for (int i = s.size() - 1; i >= 0; i--) {
+			int temp = s.get(0);
+			s.set(0, s.get(i));
+			s.set(i, temp);
+			heapSize--;
+			maxheapify(s, 0);
+		}
+	}
+
+	public static void buildheap(ArrayList<Integer> s) {
+		heapSize = s.size();
+		for (int i = (int) Math.floor(s.size() / 2 - 1); i >= 0; i--) {
+			heapify(s, i);
+		}
+	}
+
+	public static void maxheapify(ArrayList<Integer> s, int i) {
+		int largest = i;
+		int l = 2 * i + 1;
+		int r = 2 * i + 2;
+
+		if (l < heapSize && comp.compare(s.get(l), s.get(largest)) > 0) {
+			largest = l;
+		}
+		if (r < heapSize && comp.compare(s.get(r), s.get(largest)) > 0) {
+			largest = r;
+		}
+		if (largest != i) {
+			int temp = s.get(i);
+			s.set(i, s.get(largest));
+			s.set(largest, temp);
+			maxheapify(s, largest);
+		}
+	}
+
+	public static void heapify(ArrayList<Integer> s, int i) {
+		int largest = i;
+		int l = 2 * i + 1;
+		int r = 2 * i + 2;
+
+		if (l < heapSize && s.get(l) > s.get(largest)) {
+			largest = l;
+		}
+		if (r < heapSize && s.get(r) > s.get(largest)) {
+			largest = r;
+		}
+		if (largest != i) {
+			int temp = s.get(i);
+			s.set(i, s.get(largest));
+			s.set(largest, temp);
+			heapify(s, largest);
+		}
 	}
 }
