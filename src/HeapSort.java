@@ -120,7 +120,7 @@ public class HeapSort extends Sorter {
 	public static void buildheap(ArrayList<Integer> s) {
 		heapSize = s.size();
 		for (int i = (int) Math.floor(s.size() / 2 - 1); i >= 0; i--) {
-			heapify(s, i);
+			maxheapify(s, i);
 		}
 	}
 
