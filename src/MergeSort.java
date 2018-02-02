@@ -1,32 +1,25 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /**
- * @author bjanos
- *
- */
-/**
- * @author bjanos
+ * @author bpjanos, nalytle
+ * 
+ *         A class to implement mergesort. It is based off of pseudocode found
+ *         in the CSC 505 class notes.
  *
  */
 public class MergeSort extends Sorter {
-	
 
+	/**
+	 * Reads in the input, tracks the runtime, and writes the results.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		// Testing
-//		ArrayList<Integer> arr = new ArrayList<>();
-//		arr.add(5);
-//		arr.add(4);
-//		arr.add(3);
-//		arr.add(2);
-//		// arr.add(1);
-//		integerList = arr;
 		read();
 		startTime = System.nanoTime();
 		ArrayList<Integer> sorted = mergeSort(integerList);
 		endTime = System.nanoTime();
-		runtime = endTime-startTime;
-		// Worst case should be nlgn comparisons, which looks like it checks out
+		runtime = endTime - startTime;
 		write(sorted);
 	}
 
@@ -38,8 +31,7 @@ public class MergeSort extends Sorter {
 	 * @return An ArrayList of the integers from L in sorted order
 	 */
 	public static ArrayList<Integer> mergeSort(ArrayList<Integer> L) {
-		
-		/**
+		/*
 		 * If the list is empty or contains only one element, our job is done. If the
 		 * list contains more than one element, we continuously divide the list in half
 		 * until they consist of one or no elements and merge them together in sorted
@@ -65,13 +57,13 @@ public class MergeSort extends Sorter {
 	 */
 	public static ArrayList<Integer> merge(ArrayList<Integer> L1, ArrayList<Integer> L2) {
 		// If one of the lists are empty, we only need to return the other list.
-		
 		if (L1.size() == 0) {
 			return L2;
 		} else if (L2.size() == 0) {
 			return L1;
 		}
-		/**
+
+		/*
 		 * If the first element of one list is less than the first element of the other
 		 * list, then the smaller element is added to the sorted master list and the
 		 * merge function is called on the remaining values in the list with the smaller

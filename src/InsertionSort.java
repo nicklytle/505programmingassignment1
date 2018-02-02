@@ -1,20 +1,24 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /**
- * @author bjanos
+ * @author bpjanos, nalytle
+ * 
+ *         A class that implements insertion sort. Both the recursive and
+ *         non-recursive form are represented here, but only the non-recursive
+ *         form is used. The non-recursive insertion sort was based off of
+ *         pseudocode found in Introduction to Algorithms 3rd e by Cormen. The
+ *         recursive version was based off of pseudocode found in CSC 505 class
+ *         notes.
  *
  */
 public class InsertionSort extends Sorter {
 
+	/**
+	 * Reads in the input, tracks the runtime, and writes the results.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		// ArrayList<Integer> arr = new ArrayList<>();
-		// arr.add(5);
-		// arr.add(4);
-		// arr.add(3);
-		// arr.add(2);
-		// integerList = arr;
-		// arr.add(1);
 		read();
 		startTime = System.nanoTime();
 		ArrayList<Integer> sorted = nonRecursiveInsertionSort(integerList);
@@ -25,11 +29,18 @@ public class InsertionSort extends Sorter {
 	}
 
 	/**
-	 * A function to perform insertion sort non-recursively. Misunderstood directions and implemented it recursively.
-	 * @param L The ArrayList to sort in place
+	 * A non-recursive implementation of insertion sort.
+	 * 
+	 * @param L
+	 *            The ArrayList to sort in place
 	 * @return the same ArrayList, L, sorted.
 	 */
 	public static ArrayList<Integer> nonRecursiveInsertionSort(ArrayList<Integer> L) {
+		/*
+		 * One element is removed and then compared to each element until its proper
+		 * place is found. Its correct placement is when the element is less than the
+		 * one it is being compared to. It will then be placed at that index.
+		 */
 		for (int j = 1; j < L.size(); j++) {
 			int key = L.get(j);
 			int i = j - 1;
@@ -43,14 +54,15 @@ public class InsertionSort extends Sorter {
 	}
 
 	/**
-	 * Recursively takes one element of a list at a time and sorts it
+	 * Recursively takes one element of a list at a time and sorts it. This method
+	 * is not run for grading purposes.
 	 * 
 	 * @param L
 	 *            An unsorted list of Integers
 	 * @return the list L in sorted order
 	 */
 	public static ArrayList<Integer> insertionSort(ArrayList<Integer> L) {
-		/**
+		/*
 		 * If L is empty, our work is done. Otherwise, take the first element of the
 		 * list and then insert it into a sorted list (the recursive call to
 		 * insertionSort).
@@ -64,7 +76,8 @@ public class InsertionSort extends Sorter {
 	}
 
 	/**
-	 * Finds the proper position of an integer into a sorted list.
+	 * Finds the proper position of an integer into a sorted list. This method is
+	 * not run for grading purposes.
 	 * 
 	 * @param i
 	 *            The Integer to place.
@@ -74,7 +87,7 @@ public class InsertionSort extends Sorter {
 	 */
 	public static ArrayList<Integer> insert(Integer i, ArrayList<Integer> l) {
 		ArrayList<Integer> sorted = new ArrayList<>();
-		/**
+		/*
 		 * If the list is empty, then we can return a list with simply i. If the integer
 		 * is smaller than the first element of the list, then it will be inserted in
 		 * the first position in the list. If the first element of the list is smaller
