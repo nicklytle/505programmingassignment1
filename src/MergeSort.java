@@ -15,12 +15,18 @@ public class MergeSort extends Sorter {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		read();
+		ArrayList<Integer> test = new ArrayList<>();
+		test.add(5);
+		test.add(4);
+		test.add(3);
+		test.add(2);
+		// read();
+		integerList = test;
 		startTime = System.nanoTime();
-		ArrayList<Integer> sorted = mergeSort(integerList);
+		mergesort(integerList, 0, integerList.size() - 1);
 		endTime = System.nanoTime();
 		runtime = endTime - startTime;
-		write(sorted);
+		write(integerList);
 	}
 
 	/**
@@ -81,6 +87,43 @@ public class MergeSort extends Sorter {
 			l.add(L1.get(0));
 			l.addAll(merge(rest, L2));
 			return l;
+		}
+	}
+
+	public static void mergesort(ArrayList<Integer> sort, int left, int right) {
+		if (left < right) {
+			int mid = (int) Math.floor((left + right) / 2);
+			mergesort(sort, left, mid);
+			mergesort(sort, mid + 1, right);
+			mergeIt(sort, left, mid, right);
+		}
+	}
+
+	public static void mergeIt(ArrayList<Integer> sort, int left, int mid, int right) {
+		int lSize = mid - left + 1;
+		int rSize = right - mid;
+
+		ArrayList<Integer> L = new ArrayList<>();
+		ArrayList<Integer> R = new ArrayList<>();
+
+		for (int i = 0; i < lSize; i++) {
+			L.add(sort.get(left + i));
+		}
+		L.add(Integer.MAX_VALUE);
+		for (int j = 0; j < rSize; j++) {
+			R.add(sort.get(mid + j + 1));
+		}
+		R.add(Integer.MAX_VALUE);
+
+		int i = 0, j = 0;
+		for (int k = left; k <= right; k++) {
+			if (comp.compare(L.get(i), R.get(j)) <= 0) {
+				sort.set(k, L.get(i));
+				i++;
+			} else {
+				sort.set(k, R.get(j));
+				j++;
+			}
 		}
 	}
 
